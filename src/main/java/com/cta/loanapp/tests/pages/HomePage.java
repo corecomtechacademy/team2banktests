@@ -1,4 +1,4 @@
-package pageObjects;
+package com.cta.loanapp.tests.pages;
 
 import org.openqa.selenium.WebDriver;
 
