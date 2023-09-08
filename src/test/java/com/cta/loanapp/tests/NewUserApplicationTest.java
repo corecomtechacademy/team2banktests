@@ -1,27 +1,25 @@
 package com.cta.loanapp.tests;
 
 import com.cta.loanapp.tests.pages.HomePage;
+import com.cta.loanapp.tests.pages.LoginPage;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class UserApplication {
+public class NewUserApplicationTest {
     private static WebDriver driver = WebDriverManager.getDriver();
     private final HomePage homepage = new HomePage(driver);
+    private final LoginPage loginpage = new LoginPage(driver);
+
 
     @Test
     public void addApplication() {
         homepage.goTo();
         homepage.clickLoginLink();
+        loginpage.userLogin();
+        homepage.clickNewAppLink();
 
-        driver.findElement(By.id("username")).sendKeys("user");
-        driver.findElement(By.id("password")).sendKeys("password");
-        WebElement signInPageClick = driver.findElement(By.cssSelector("div.container div div.row > div:nth-child(1)"));
-        signInPageClick.click();
-
-        WebElement loanApplicationClick = driver.findElement(By.linkText("Loan Application"));
-        loanApplicationClick.click();
 
         driver.findElement(By.id("firstName")).sendKeys("Tdizzle");
         driver.findElement(By.id("lastName")).sendKeys("Crabby");

@@ -16,18 +16,24 @@ public class HomePage extends BasePage {
         driver.get(URL);
     }
 
-    public void clickLoginLink (){
+    public void clickLoginLink() {
         WebElement logInClick = driver.findElement(By.cssSelector("body > div:nth-child(4) > div > footer > span > a"));
         logInClick.click();
     }
-public void aboutPage (){
-    WebElement clickAboutPage = driver.findElement(By.linkText("About page"));
-    clickAboutPage.click();
-}
 
-public void adminViewApp () {
-    WebElement adminView = driver.findElement(By.linkText("Admin page"));
-    adminView.click();
-}
+    public void aboutPage() {
+        WebElement clickAboutPage = driver.findElement(By.linkText("About page"));
+        clickAboutPage.click();
+    }
+
+    public void adminViewApp() {
+        WebElement adminView = driver.findElement(By.linkText("Admin page"));
+        adminView.click();
+    }
+
+    public void clickNewAppLink() {
+        WebElement loanApplicationClick = driver.findElement(By.linkText("Loan Application"));
+        loanApplicationClick.click();
+    }
 
 }
