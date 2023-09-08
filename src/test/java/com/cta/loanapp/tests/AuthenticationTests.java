@@ -13,7 +13,7 @@ public class AuthenticationTests {
 
     private static WebDriver driver = WebDriverManager.getDriver();
     private final HomePage homepage = new HomePage(driver);
-    private LogIn login = new LogIn(driver);
+    private final LogIn login = new LogIn(driver);
 
     @BeforeEach
     public void individualSetUp() {
@@ -24,29 +24,20 @@ public class AuthenticationTests {
     @Test
     public void testUserLogin() {
         //user
-        WebElement sign = driver.findElement(By.cssSelector("body > div:nth-child(4) > div > footer > span > a"));
-        sign.click();
-        driver.findElement(By.cssSelector("body > div:nth-child(4) > div > footer > span > a")).getText();
-        WebElement username = driver.findElement(By.id("username"));
-        username.sendKeys("user");
-        WebElement password = driver.findElement(By.id("password"));
-        password.sendKeys("password");
-        driver.findElement(By.cssSelector("div:nth-child(1) > input")).click();
+        login.clickSignIn();
+        login.addUserName("username");
+        login.addPass("password");
+        login.clickSubmit();
 
     }
 
     @Test
     public void testAdminLogin() {
+        login.clickSignIn();
+        login.adminUser("user");
+        login.adminPass("password");
+        login.clickSubmit();
 
-        //admin
-        WebElement adminSign = driver.findElement(By.cssSelector("body > div:nth-child(4) > div > footer > span > a"));
-        adminSign.click();
-        driver.findElement(By.cssSelector("body > div:nth-child(4) > div > footer > span > a")).getText();
-        WebElement adminUsername = driver.findElement(By.id("username"));
-        adminUsername.sendKeys("admin");
-        WebElement adminPassword = driver.findElement(By.id("password"));
-        adminPassword.sendKeys("password");
-        driver.findElement(By.cssSelector("div:nth-child(1) > input")).click();
     }
     @AfterAll
     public static void tearDown(){
