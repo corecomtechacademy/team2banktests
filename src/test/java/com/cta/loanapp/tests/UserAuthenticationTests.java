@@ -22,21 +22,16 @@ public class UserAuthenticationTests {
     @Test
     public void testUserLogin() {
         homepage.goTo();
-        WebElement logInClick = driver.findElement(By.cssSelector("body > div:nth-child(4) > div > footer > span > a"));
-        logInClick.click();
-
-        driver.findElement(By.id("username")).sendKeys("user");
-        driver.findElement(By.id("password")).sendKeys("password");
-        WebElement signInPageClick = driver.findElement(By.cssSelector("div > div.row > div:nth-child(1)"));
-        signInPageClick.click(); //div.container div div.row > div:nth-child(1)
+        homepage.clickLoginLink();
+        loginpage.testUserLogDetails();
         // Assert.assertTrue(homepage.contains("user"));
     }
 
     @Test
     public void testAdminLogin() {
         homepage.goTo();
-        WebElement logInClick = driver.findElement(By.cssSelector("div:nth-child(4) span > a"));
-        logInClick.click();
+        homepage.clickLoginLink();
+        loginpage.testAdminLogDetails();
 
         driver.findElement(By.id("username")).sendKeys("admin");
         driver.findElement(By.id("password")).sendKeys("password");
@@ -47,15 +42,14 @@ public class UserAuthenticationTests {
     @Test
     public void aboutPage() {
         homepage.goTo();
-        WebElement clickAboutPage = driver.findElement(By.linkText("About page"));
-        clickAboutPage.click();
+        homepage.aboutPage();
         //add an assertion to find correct text
     }
+
     @Test
-    public void adminViewPage(){
+    public void adminViewPage() {
         homepage.goTo();
-        WebElement adminView = driver.findElement(By.linkText("Admin page"));
-        adminView.click();
+        homepage.adminViewApp();
         //view applications
     }
 

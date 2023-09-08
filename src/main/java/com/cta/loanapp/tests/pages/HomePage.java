@@ -1,6 +1,8 @@
 package com.cta.loanapp.tests.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class HomePage extends BasePage {
 
@@ -14,13 +16,18 @@ public class HomePage extends BasePage {
         driver.get(URL);
     }
 
-public void userSignIn(){
-
+    public void clickLoginLink (){
+        WebElement logInClick = driver.findElement(By.cssSelector("body > div:nth-child(4) > div > footer > span > a"));
+        logInClick.click();
+    }
+public void aboutPage (){
+    WebElement clickAboutPage = driver.findElement(By.linkText("About page"));
+    clickAboutPage.click();
 }
 
-
-public void adminSignIn(){
-
+public void adminViewApp () {
+    WebElement adminView = driver.findElement(By.linkText("Admin page"));
+    adminView.click();
 }
 
 }
