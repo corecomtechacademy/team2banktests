@@ -3,13 +3,13 @@ package com.cta.loanapp.tests;
 import com.cta.loanapp.tests.pages.Access;
 import com.cta.loanapp.tests.pages.HomePage;
 import com.cta.loanapp.tests.pages.LogIn;
+import com.cta.loanapp.tests.webd.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AccessTest {
@@ -25,6 +25,7 @@ public class AccessTest {
     }
     @Test
     public void unauthorisedAccess(){
+        homepage.goTo();
         //admin
         login.clickSignIn();
         login.adminUser("admin");
@@ -37,6 +38,7 @@ public class AccessTest {
     }
     @Test
     public void userAccess(){
+        homepage.goTo();
         login.clickSignIn();
         login.addUserName("user");
         login.addPass("password");
@@ -57,6 +59,21 @@ public class AccessTest {
         access.email();
         access.amount();
         access.confirm();
+
+
+    }
+    @Test
+    public void makeAppInvalid(){
+        homepage.goTo();
+        login.clickSignIn();
+
+
+    }
+    @Test
+    public void userAccessIn(){
+        login.clickSignIn();
+        login.addUserName("user");
+        login.addPass("password");
 
 
     }

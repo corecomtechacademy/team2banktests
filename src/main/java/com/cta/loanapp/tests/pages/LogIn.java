@@ -10,9 +10,7 @@ public class LogIn extends BasePage{
         super(d);
         driver =d;
     }
-    By userN = By.id("username");
-    By pass = By.id("password");
-    By submit = By.cssSelector("div:nth-child(1) > input");
+    By userN = By.id("username");;
 
     public void clickSignIn(){
         WebElement sign = driver.findElement(By.cssSelector("body > div:nth-child(4) > div > footer > span > a"));

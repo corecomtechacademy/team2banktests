@@ -11,12 +11,12 @@ public class Access extends BasePage {
     }
 
     public void clickApp() {
-        driver.findElement(By.cssSelector("body > div.container > div > h2:nth-child(3) > a")).click();
+        driver.findElement(By.cssSelector("div > h2:nth-child(3) > a")).click();
 
     }
 
     public void newApp() {
-        driver.findElement(By.cssSelector("body > div.container > div > h2:nth-child(3) > a")).click();
+        driver.findElement(By.cssSelector("div > h2:nth-child(3) > a")).click();
 
 
     }
