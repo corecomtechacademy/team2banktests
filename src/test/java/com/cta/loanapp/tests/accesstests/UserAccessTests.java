@@ -17,11 +17,10 @@ public class UserAccessTests {
     private static final WebDriver driver = WebDriverManager.getDriver();
     private final HomePage homePage = new HomePage(driver);
     private final LoginPage loginPage = new LoginPage(driver);
-    private final AdminPage adminPage = new AdminPage(driver);
+
     private final LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
     private final SearchPage searchPage = new SearchPage(driver);
     private final AboutPage aboutPage = new AboutPage(driver);
-    private final ViewApplicationsPage viewApplicationsPage = new ViewApplicationsPage(driver);
 
 
     @BeforeEach

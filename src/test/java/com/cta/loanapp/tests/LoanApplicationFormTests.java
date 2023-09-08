@@ -91,11 +91,5 @@ public class LoanApplicationFormTests {
         Assertions.assertTrue(loanApplicationPage.isErrorMessagePresent(expectedErrorMessage));
     }
 
-    public void checkSuccessfulApplication() {
-        String extractedSuccessfulApplicationTitle = loanApplicationPage.getSuccessfulApplicationResultTitle();
-        String expectedSuccessfulApplicationTitle = "Result";
-        Assertions.assertEquals(expectedSuccessfulApplicationTitle, extractedSuccessfulApplicationTitle);
-    }
-
 
 }
