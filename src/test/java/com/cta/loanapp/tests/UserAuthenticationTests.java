@@ -21,6 +21,7 @@ public class UserAuthenticationTests {
 
     @Test
     public void testUserLogin() {
+        homepage.goTo();
         WebElement logInClick = driver.findElement(By.cssSelector("body > div:nth-child(4) > div > footer > span > a"));
         logInClick.click();
 
@@ -33,6 +34,7 @@ public class UserAuthenticationTests {
 
     @Test
     public void testAdminLogin() {
+        homepage.goTo();
         WebElement logInClick = driver.findElement(By.cssSelector("div:nth-child(4) span > a"));
         logInClick.click();
 
@@ -42,15 +44,21 @@ public class UserAuthenticationTests {
         signInPageClick.click();
     }
 
-    //about page
-    //click about
-    //assertion to find correct text
     @Test
     public void aboutPage() {
         homepage.goTo();
-        WebElement clickAboutPage = driver.findElement(By.cssSelector("starter-template h2:nth-of-type(4)"));
+        WebElement clickAboutPage = driver.findElement(By.linkText("About page"));
         clickAboutPage.click();
+        //add an assertion to find correct text
     }
+    @Test
+    public void adminViewPage(){
+        homepage.goTo();
+        WebElement adminView = driver.findElement(By.linkText("Admin page"));
+        adminView.click();
+        //view applications
+    }
+
     // admin cant view relevant pages
 
     //add a new application (user)
