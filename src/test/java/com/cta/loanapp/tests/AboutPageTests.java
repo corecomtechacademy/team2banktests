@@ -28,7 +28,8 @@ public class AboutPageTests {
     @Test
     public void testAboutBodyTest() {
         String extractedBodyText = aboutPage.getAboutBodyText();
-        String predictedBodyTest = "This application is to be used to process applications for loans by bank branch staff.\n" +
+        String predictedBodyTest = "This application is to be used to " +
+                "process applications for loans by bank branch staff.\n" +
                 "Normal users can process applications and admin users can view and delete existing applications.";
         Assertions.assertEquals(extractedBodyText, predictedBodyTest);
     }

@@ -20,7 +20,7 @@ public class AuthenticationTests {
     @BeforeEach
     public void individualSetUp() {
         homePage.goTo();
-        homePage.clickLogInLink();
+        homePage.goToLoginPage();
     }
 
     @Test

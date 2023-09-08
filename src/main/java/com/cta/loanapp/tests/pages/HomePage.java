@@ -23,9 +23,27 @@ public class HomePage extends BasePage {
         aboutLink.click();
     }
 
-    public void clickLogInLink() {
+    public void goToLoginPage() {
         WebElement logInLink = wait.until(d -> driver.findElement(By.cssSelector("a[href='/logout']")));
         logInLink.click();
+    }
+
+    public void goToLoanApplicatonPage() {
+        WebElement loanApplicationLink = wait.until(d -> driver.findElement(By.cssSelector("a[href='/application']")));
+        loanApplicationLink.click();
+    }
+
+    public void goToAdminPage() {
+        WebElement adminPageLink = wait.until(
+                d -> driver.findElement(By.cssSelector("a[href='/admin']")));
+        adminPageLink.click();
+    }
+
+    public void goToSearchPage() {
+        WebElement searchPageLink = wait.until(
+                d -> driver.findElement(By.cssSelector("a[href='/search']"))
+        );
+        searchPageLink.click();
     }
 
     public String getLoggedInUserText() {
