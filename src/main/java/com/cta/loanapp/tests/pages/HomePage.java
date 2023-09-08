@@ -14,5 +14,13 @@ public class HomePage extends BasePage {
         driver.get(URL);
     }
 
+public void userSignIn(){
+
+}
+
+
+public void adminSignIn(){
+
+}
 
 }
