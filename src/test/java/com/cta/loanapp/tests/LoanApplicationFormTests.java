@@ -71,7 +71,8 @@ public class LoanApplicationFormTests {
         dataForInputs.put("email", "alhcomer@hotmail.");
         dataForInputs.put("amount", 5000);
         loanApplicationPage.submitApplicationDetails(dataForInputs);
-        Assertions.assertNotEquals("Result", loanApplicationPage.getSuccessfulApplicationResultTitle());
+        String expectedErrorMessage = "Must be a valid email address";
+        Assertions.assertTrue(loanApplicationPage.isErrorMessagePresent(expectedErrorMessage));
     }
 
     @Test
@@ -86,11 +87,9 @@ public class LoanApplicationFormTests {
         dataForInputs.put("email", "alhcomer@hotmail.co.uk");
         dataForInputs.put("amount", 5000);
         loanApplicationPage.submitApplicationDetails(dataForInputs);
-        Assertions.assertNotEquals("Result", loanApplicationPage.getSuccessfulApplicationResultTitle());
+        String expectedErrorMessage = "The name must be between 5 and 30 characters";
+        Assertions.assertTrue(loanApplicationPage.isErrorMessagePresent(expectedErrorMessage));
     }
-
-
-
 
     public void checkSuccessfulApplication() {
         String extractedSuccessfulApplicationTitle = loanApplicationPage.getSuccessfulApplicationResultTitle();

@@ -44,4 +44,23 @@ public class LoanApplicationPage extends BasePage {
         WebElement result = driver.findElement(By.cssSelector("div.container h1"));
         return result.getText();
     }
+
+    public boolean isErrorMessagePresent(String errorMessage) {
+        List<WebElement> tableRows = wait.until(d -> driver.findElements(By.cssSelector("tr")));
+        for (WebElement row : tableRows) {
+            List<WebElement> tdElements = row.findElements(By.tagName("td"));
+            WebElement errorCell = null;  // Initialize errorCell outside of the if block
+            if (tdElements.size() > 2) {
+                errorCell = tdElements.get(2);
+            }
+            if (errorCell != null) {  // Check if errorCell is not null before using it
+                String errorText = errorCell.getText();
+                if (errorText.equals(errorMessage)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }
