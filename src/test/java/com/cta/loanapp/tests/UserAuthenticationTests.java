@@ -30,7 +30,7 @@ public class AuthenticationTests {
     public void testUserLogin() {
         String username = "user";
         String password = "password";
-        loginPage.login(username, password);
+        loginPage.logIn(username, password);
         String loggedInUserText = homePage.getLoggedInUserText();
         String usernameOnPageText = extractUserRegEx(loggedInUserText);
         Assertions.assertEquals(username, usernameOnPageText);
