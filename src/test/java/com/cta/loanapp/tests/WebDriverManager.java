@@ -1,6 +1,5 @@
-package com.cta.loanapp.tests.webd;
+package com.cta.loanapp.tests;
 
-import com.cta.loanapp.tests.webd.WebDriverInstance;
 import org.openqa.selenium.WebDriver;
 
 

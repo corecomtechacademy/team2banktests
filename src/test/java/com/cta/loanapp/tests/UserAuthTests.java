@@ -3,17 +3,14 @@ package com.cta.loanapp.tests;
 import com.cta.loanapp.tests.pages.HomePage;
 import com.cta.loanapp.tests.pages.LoginPage;
 import org.junit.jupiter.api.Assertions;
-import com.cta.loanapp.tests.pages.LoginPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class AuthenticationTests {
+public class UserAuthTests {
 
     private static WebDriver driver = WebDriverManager.getDriver();
     private final HomePage homePage = new HomePage(driver);

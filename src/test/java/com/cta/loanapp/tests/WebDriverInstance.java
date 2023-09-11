@@ -1,4 +1,4 @@
-package com.cta.loanapp.tests.webd;
+package com.cta.loanapp.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,8 +14,8 @@ public class WebDriverInstance {
     public static WebDriver getInstance(){
         if (driver == null){
             options = new ChromeOptions();
-            options.addArguments("--headless");
-            driver = new ChromeDriver(options);
+//            options.addArguments("--headless");
+            driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }

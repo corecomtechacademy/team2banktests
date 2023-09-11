@@ -1,13 +1,12 @@
 package com.cta.loanapp.tests.accesstests;
 
-import com.cta.loanapp.tests.WebDriverManager;
+
 import com.cta.loanapp.tests.pages.*;
-import org.checkerframework.checker.units.qual.A;
+import com.cta.loanapp.tests.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,11 +16,9 @@ public class UserAccessTests {
     private static final WebDriver driver = WebDriverManager.getDriver();
     private final HomePage homePage = new HomePage(driver);
     private final LoginPage loginPage = new LoginPage(driver);
-
     private final LoanApplicationPage loanApplicationPage = new LoanApplicationPage(driver);
     private final SearchPage searchPage = new SearchPage(driver);
     private final AboutPage aboutPage = new AboutPage(driver);
-
 
     @BeforeEach
     public void individualSetUp() {

@@ -21,10 +21,8 @@ public class ViewApplicationsPage extends BasePage{
         return viewApplicationsTitleText.getText();
     }
 
-    public List<HashMap<String, String>> getListOfRecords() {
-        List<HashMap<String, String>> listOfRecords = new ArrayList<>();
-        List<WebElement> tableRows = new ArrayList<>();
-        Map<String, String> individualRecord = new HashMap<>();
-        return listOfRecords;
+    public void deleteApp(){
+        driver.findElement(By.cssSelector("tr:nth-child(2) > td:nth-child(13) > a"));
+        driver.findElement(By.tagName("td")).click();
     }
 }
