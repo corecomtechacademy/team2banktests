@@ -2,16 +2,20 @@ package com.cta.loanapp.tests.webd;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
 public class WebDriverInstance {
 
     private static WebDriver driver;
+    private static ChromeOptions options;
 
     public static WebDriver getInstance(){
         if (driver == null){
-            driver = new ChromeDriver();
+            options = new ChromeOptions();
+            options.addArguments("--headless");
+            driver = new ChromeDriver(options);
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
