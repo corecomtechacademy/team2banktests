@@ -1,13 +1,11 @@
-package com.cta.loanapp.tests.accesstests;
-
-import com.cta.loanapp.tests.WebDriverManager;
+package com.cta.loanapp.tests.admin;
 import com.cta.loanapp.tests.pages.*;
-import org.checkerframework.checker.units.qual.A;
+import com.cta.loanapp.tests.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class AdminAccessTests {
     private static final WebDriver driver = WebDriverManager.getDriver();
@@ -68,5 +66,19 @@ public class AdminAccessTests {
         String extractedViewApplicationsTitleText = viewApplicationsPage.getViewApplicationsTitleText();
         String predictedViewApplicationsTitleText = "Applications";
         Assertions.assertEquals(predictedViewApplicationsTitleText, extractedViewApplicationsTitleText);
+    }
+    @Test
+    public void adminViewingAdminPageTest(){
+        viewApplicationsPage.mainAdminPage();
+        String pageName = driver.findElement(By.tagName("h1")).getText();
+        Assertions.assertEquals("Admin page", pageName);
+    }
+    @Test
+    public void  adminDel(){
+        homePage.goToAdminPage();
+        adminPage.goToViewApplications();
+        String pageNew = driver.findElement(By.tagName("h2")).getText();
+        Assertions.assertEquals("Applications", pageNew);
+        viewApplicationsPage.deleteApp();
     }
 }

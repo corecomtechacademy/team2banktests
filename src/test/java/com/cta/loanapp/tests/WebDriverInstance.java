@@ -1,4 +1,4 @@
-package com.cta.loanapp.tests;
+package com.cta.loanapp.tests.webd;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
