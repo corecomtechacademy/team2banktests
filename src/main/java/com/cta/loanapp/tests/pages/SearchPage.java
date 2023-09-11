@@ -15,4 +15,10 @@ public class SearchPage extends BasePage{
         )));
         return searchTitle.getText();
     }
+
+    public void searchInput(){
+        driver.findElement(By.cssSelector("body > div.container > div > h2:nth-child(5) > a")).click();
+        driver.findElement(By.id("search_input")).sendKeys("arooj");
+        driver.findElement(By.cssSelector("button")).click();
+    }
 }

@@ -5,6 +5,7 @@ import com.cta.loanapp.tests.pages.HomePage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AboutPageTests {
@@ -20,9 +21,8 @@ public class AboutPageTests {
 
     @Test
     public void testAboutTitleText() {
-        String extractedTitleText = aboutPage.getAboutTitleText();
-        String predictedTitleText = "About";
-        Assertions.assertEquals(extractedTitleText, predictedTitleText);
+        String pageTitle = driver.findElement(By.tagName("h1")).getText();
+        Assertions.assertEquals("About", pageTitle);
     }
 
     @Test
