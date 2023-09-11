@@ -1,12 +1,10 @@
 package com.cta.loanapp.tests;
-
 import com.cta.loanapp.tests.pages.HomePage;
 import com.cta.loanapp.tests.pages.LoginPage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
