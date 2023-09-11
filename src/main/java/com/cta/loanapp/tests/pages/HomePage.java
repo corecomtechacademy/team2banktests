@@ -8,6 +8,7 @@ public class HomePage extends BasePage {
 
     private static final String URL = "http://localhost:8080/";
 
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -16,24 +17,40 @@ public class HomePage extends BasePage {
         driver.get(URL);
     }
 
-    public void clickLoginLink() {
-        WebElement logInClick = driver.findElement(By.cssSelector("body > div:nth-child(4) > div > footer > span > a"));
-        logInClick.click();
+    public void goToAboutPage() {
+        WebElement aboutLink = wait.until(
+                d -> driver.findElement(By.cssSelector("h2 a[href='/about']")));
+        aboutLink.click();
     }
 
-    public void aboutPage() {
-        WebElement clickAboutPage = driver.findElement(By.linkText("About page"));
-        clickAboutPage.click();
+    public void goToLoginPage() {
+        WebElement logInLink = wait.until(d -> driver.findElement(By.cssSelector("a[href='/logout']")));
+        logInLink.click();
     }
 
-    public void adminViewApp() {
-        WebElement adminView = driver.findElement(By.linkText("Admin page"));
-        adminView.click();
+    public void goToLoanApplicatonPage() {
+        WebElement loanApplicationLink = wait.until(d -> driver.findElement(By.cssSelector("a[href='/application']")));
+        loanApplicationLink.click();
     }
 
-    public void clickNewAppLink() {
-        WebElement loanApplicationClick = driver.findElement(By.linkText("Loan Application"));
-        loanApplicationClick.click();
+    public void goToAdminPage() {
+        WebElement adminPageLink = wait.until(
+                d -> driver.findElement(By.cssSelector("a[href='/admin']")));
+        adminPageLink.click();
     }
+
+    public void goToSearchPage() {
+        WebElement searchPageLink = wait.until(
+                d -> driver.findElement(By.cssSelector("a[href='/search']"))
+        );
+        searchPageLink.click();
+    }
+
+    public String getLoggedInUserText() {
+        WebElement loggedUserSpan = wait.until(
+                d -> driver.findElement(By.cssSelector("div.container footer span")));
+        return loggedUserSpan.getText();
+    }
+
 
 }
