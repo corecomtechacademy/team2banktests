@@ -1,4 +1,5 @@
 package com.cta.loanapp.tests.accesstests;
+
 import com.cta.loanapp.tests.pages.*;
 import com.cta.loanapp.tests.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
@@ -6,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class AdminAccessTests {
     private static final WebDriver driver = WebDriverManager.getDriver();
@@ -42,7 +44,7 @@ public class AdminAccessTests {
     }
 
     @Test
-    public void testAboutPageAccess(){
+    public void testAboutPageAccess() {
         homePage.goToAboutPage();
         String extractedBodyText = aboutPage.getAboutTitleText();
         String predictedBodyTest = "About";
@@ -50,21 +52,27 @@ public class AdminAccessTests {
     }
 
     @Test
-    public void testViewApplicationsAccess(){
+    public void testViewApplicationsAccess() {
         homePage.goToAdminPage();
         adminPage.goToViewApplications();
         String extractedViewApplicationsTitleText = viewApplicationsPage.getViewApplicationsTitleText();
         String predictedViewApplicationsTitleText = "Applications";
         Assertions.assertEquals(predictedViewApplicationsTitleText, extractedViewApplicationsTitleText);
     }
+
     @Test
-    public void adminViewingAdminPageTest(){
+    public void adminViewingAdminPageTest() {
         homePage.goToAdminPage();
         String pageName = driver.findElement(By.tagName("h1")).getText();
         Assertions.assertEquals("Admin page", pageName);
+        adminPage.goToViewApplications();
+        String appCheck = driver.findElement(By.cssSelector("div.container td:nth-child(12)")).getText();
+        Assertions.assertEquals("Waiting for overnight processing", appCheck);
     }
+
+
     @Test
-    public void  adminDel(){
+    public void adminDel() {
         //TODO: Need to test that the application is deleted using an assertion
         homePage.goToAdminPage();
         adminPage.goToViewApplications();
@@ -75,7 +83,7 @@ public class AdminAccessTests {
     }
 
     @Test
-    public void unauthorisedAccess(){
+    public void unauthorisedAccess() {
         homePage.goToLoanApplicatonPage();
         String pageTitle = driver.findElement(By.tagName("h1")).getText();
         Assertions.assertEquals("403 - Access is denied", pageTitle);
